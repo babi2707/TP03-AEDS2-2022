@@ -114,22 +114,17 @@ class Quick {
 
         // ----- validar remoção -----
 
-        if (n == 0) {
-            throw new Exception("Erro ao remover");
+        if (primeiro == ultimo) {
+            throw new Exception("Erro ao remover (vazia)!");
         }
 
-        // ----------------------------
+        CelulaDupla tmp = primeiro;
+        primeiro = primeiro.prox;
 
-        Filme resp = filme[0];
-        n--;
+        Filme resp = primeiro.elemento;
 
-        // ----- levar elementos para o início -----
-
-        for (int i = 0; i < n; i++) {
-            filme[i] = filme[i + 1];
-        }
-
-        // ----------------------------------------
+        tmp.prox = primeiro.ant = null;
+        tmp = null;
 
         return resp;
 
@@ -143,13 +138,16 @@ class Quick {
 
         // ----- validar remoção -----
 
-        if (n == 0) {
-            throw new Exception("Erro ao remover");
+        if (primeiro == ultimo) {
+            throw new Exception("Erro ao remover (vazia)!");
         }
 
         // ----------------------------
 
-        Filme resp = filme[--n];
+        Filme resp = ultimo.elemento;
+        ultimo = ultimo.ant;
+        ultimo.prox.ant = null;
+        ultimo.prox = null;
 
         return resp;
 
@@ -161,24 +159,30 @@ class Quick {
 
     public Filme removePos(int pos) throws Exception {
 
+        Filme resp;
+        int tamanho = tamanho();
+
         // ----- validar remoção -----
 
-        if (n == 0 || pos < 0 || pos >= n) {
+        if (primeiro == ultimo || pos < 0 || pos >= tamanho) {
             throw new Exception("Erro ao remover");
+        } else if (pos == 0) {
+            resp = removeInicio();
+        } else if (pos == tamanho - 1) {
+            resp = removeFim();
+        } else {
+            // --- caminhar até a posição anterior a remoção ---
+            CelulaDupla i = primeiro.prox;
+            for (int j = 0; j < pos; j++, i = i.prox);
+            // --------------------------------------------------
+
+            i.ant.prox = i.prox;
+            i.prox.ant = i.ant;
+
+            resp = i.elemento;
+            i.prox = i.ant = null;
+            i = null;
         }
-
-        // ----------------------------
-
-        Filme resp = filme[pos];
-        n--;
-
-        // ----- levar elementos para o início -----
-
-        for (int i = pos; i < n; i++) {
-            filme[i] = filme[i + 1];
-        }
-
-        // ----------------------------------------
 
         return resp;
 
@@ -188,10 +192,10 @@ class Quick {
 
     // ---------- swap (trocar) ----------
 
-    public void swap (int i, int j) {
-        Filme tmp = filme[i];
-        filme[i] = filme[j];
-        filme[j] = tmp;
+    public void swap (CelulaDupla i, CelulaDupla j) {
+        Filme tmp = i.elemento;
+        i.elemento = j.elemento;
+        j.elemento = tmp;
     }
 
     // -----------------------------------
@@ -254,8 +258,8 @@ class Quick {
 
     public void show() {
 
-        for (int i = 0; i < n; i++) {
-            filme[i].print();
+        for (CelulaDupla i = primeiro.prox; i != null; i = i.prox, j++) {
+            i.elemento.print();
         }
     }
 
