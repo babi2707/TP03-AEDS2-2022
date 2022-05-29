@@ -37,9 +37,11 @@ class Line {
 
     // ---------- construtores ----------
 
-    public Line() {
+    public Line(int tamanho) {
         primeiro = new Celula();
         primeiro = ultimo;
+        setN(tamanho);
+        setCont(0);
     }
 
     // ----------------------------------
@@ -52,6 +54,14 @@ class Line {
 
     public void setN (int n) {
         this.n = n;
+    }
+
+    public int getCont() {
+        return cont;
+    }
+
+    public void setCont (int cont) {
+        this.cont = cont;
     }
 
     // ---------------------------------
@@ -594,7 +604,7 @@ public class FilaC {
         qtd--; // diminuir a quantidade de elementos da string em cada linha lida
 
         Filme entradas[] = new Filme[qtd]; // criar um vetor da classe
-        Line movie = new Line(); // criar uma lista da classe List
+        Line movie = new Line(5); // criar uma lista da classe List
 
         // ---------------- for loop para chamar a função que lê o arquivo
         // -----------------
