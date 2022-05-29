@@ -674,6 +674,7 @@ public class FilaC {
             entradas[i].readKey(s[i]);
 
             movie.insertFim(entradas[i]); // inserir a entrada no final da lista
+            MyIO.println(movie.media()); // imprimir a média da duração dos filmes
         }
         // ---------------------------------------------------------------------------------
 
@@ -715,6 +716,12 @@ public class FilaC {
                 // ----- inserir -----
                 movie.insertFim(filminho);
                 // -------------------
+
+                // ----- imprimir -----
+
+                MyIO.println(movie.media()); // imprimir a média da duração dos filmes
+
+                // --------------------
             }
 
             // ----- remover final -----
