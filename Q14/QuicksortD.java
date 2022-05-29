@@ -71,16 +71,9 @@ class Quick {
 
     public void insertFim(Filme x) throws Exception {
 
-        // ----- validar inserção -----
-
-        if (n >= filme.length) {
-            throw new Exception("Erro ao inserir");
-        }
-
-        // ----------------------------
-
-        filme[n] = x;
-        n++;
+        ultimo.prox = new CelulaDupla(x);
+        ultimo.prox.ant = ultimo;
+        ultimo = ultimo.prox;
 
     }
 
@@ -90,24 +83,26 @@ class Quick {
 
     public void insertPos(Filme x, int pos) throws Exception {
 
-        // ----- validar inserção -----
+        int tamanho = tamanho();
 
-        if (n >= filme.length || pos < 0 || pos > n) {
-            throw new Exception("Erro ao inserir");
+        if (pos < 0 || pos > tamanho) {
+            throw new Exception("Erro ao inserir posicao (" + pos + " / tamanho = " + tamanho + ") invalida!");
+        } else if (pos == 0) {
+            insertInicio(x);
+        } else if (pos == tamanho) {
+            insertFim(x);
+        } else {
+            // --- caminhar até a posição anterior a inserção ---
+            CelulaDupla i = primeiro;
+            for (int j = 0; j < pos; j++, i = i.prox);
+            // --------------------------------------------------
+
+            CelulaDupla tmp = new CelulaDupla(x);
+            tmp.ant = i;
+            tmp.prox = i.prox;
+            tmp.ant.prox = tmp.prox.ant = tmp;
+            tmp = i = null;
         }
-
-        // ----------------------------
-
-        // ----- levar elementos para o final -----
-
-        for (int i = n; i > pos; i--) {
-            filme[i] = filme[i - 1];
-        }
-
-        // ----------------------------------------
-
-        filme[pos] = x;
-        n++;
 
     }
 
