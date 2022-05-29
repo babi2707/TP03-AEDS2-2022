@@ -148,6 +148,25 @@ class Line {
 
     // --------------------------------
 
+    // ---------- calcular média ----------
+
+    public int media () {
+
+        double media = 0;
+        int qtd = 0;
+
+        for (Celula i = primeiro.prox; i != null; i = i.prox) {
+            media += i.elemento.getDuracao();
+            qtd++;
+        }
+
+
+
+        return (int)Math.round(media/qtd);
+    }
+
+    // ------------------------------------
+
 }
 
 class Filme {
