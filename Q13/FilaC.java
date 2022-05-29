@@ -14,6 +14,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.io.IOException;
 
+class Celula {
+    public Filme elemento;
+    public Celula prox;
+
+    public Celula(Filme elemento){
+        this.elemento = elemento;
+        this.prox = null;
+    }
+}
+
 class Line {
 
     // ---------- atributos ----------
