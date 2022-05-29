@@ -18,9 +18,7 @@ class Celula {
     public Filme elemento;
     public Celula prox;
 
-    public Celula() {
-        this(null);
-    }
+    public Celula() {}
 
     public Celula(Filme elemento){
         this.elemento = elemento;
@@ -33,6 +31,7 @@ class Line {
     // ---------- atributos ----------
 
     private Celula primeiro, ultimo;
+    private int n, cont;
 
     // -------------------------------
 
@@ -44,6 +43,18 @@ class Line {
     }
 
     // ----------------------------------
+
+    // ---------- gets e sets ----------
+
+    public int getN() {
+        return n;
+    }
+
+    public void setN (int n) {
+        this.n = n;
+    }
+
+    // ---------------------------------
     
     // ---------- inserir na ultima posição ----------
 
