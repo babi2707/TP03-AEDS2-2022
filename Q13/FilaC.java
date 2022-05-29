@@ -18,6 +18,10 @@ class Celula {
     public Filme elemento;
     public Celula prox;
 
+    public Celula() {
+        this(null);
+    }
+
     public Celula(Filme elemento){
         this.elemento = elemento;
         this.prox = null;
@@ -28,17 +32,15 @@ class Line {
 
     // ---------- atributos ----------
 
-    private Filme[] filme;
-    private int primeiro;
-    private int ultimo;
+    private Celula primeiro, ultimo;
 
     // -------------------------------
 
     // ---------- construtores ----------
 
-    public Line(int tamanho) {
-        filme = new Filme[tamanho + 1];
-        primeiro = ultimo = 0;
+    public Line() {
+        primeiro = new Celula();
+        primeiro = ultimo;
     }
 
     // ----------------------------------
@@ -47,16 +49,8 @@ class Line {
 
     public void insertFim(Filme x) throws Exception {
 
-        // ----- validar inserção -----
-
-        if (((ultimo + 1) % filme.length) == primeiro) {
-            removeInicio();
-        }
-
-        // ----------------------------
-
-        filme[ultimo] = x;
-        ultimo = (ultimo + 1) % filme.length;
+        ultimo.prox = new Celula(x);
+        ultimo = ultimo.prox;
     }
 
     // -------------------------------------------------
@@ -73,8 +67,12 @@ class Line {
 
         // ----------------------------
 
-        Filme resp = filme[primeiro];
-        primeiro = (primeiro + 1) % filme.length;
+        Celula tmp = primeiro;
+        primeiro = primeiro.prox;
+
+        Filme resp = primeiro.elemento;
+        tmp.prox = null;
+        tmp = null;
 
         return resp;
 
@@ -86,15 +84,10 @@ class Line {
 
     public void show() {
 
-        for (int i = primeiro; i != ultimo; i = ((i + 1) % filme.length)) {
-
-            if ((ultimo - primeiro) == 1) {
-                MyIO.print("[0] ");
-            } else {
-                MyIO.print("[" + i + "]" + " ");
-            }
-
-            filme[i].print();
+        int j = 0;
+        for (Celula i = primeiro.prox; i != null; i = i.prox, j++) {
+            MyIO.print("[" + j + "]" + " ");
+            i.elemento.print();
         }
     }
 
