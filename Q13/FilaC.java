@@ -39,7 +39,7 @@ class Line {
 
     public Line(int tamanho) {
         primeiro = new Celula();
-        primeiro = ultimo;
+        ultimo = primeiro;
         setN(tamanho);
         setCont(0);
     }
