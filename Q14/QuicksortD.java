@@ -203,54 +203,16 @@ class Quick {
     // ---------- sort (ordenar) ----------
 
     public void sort() {
-        quicksort(0, n-1);
         insercao();
     }
 
     // ------------------------------------
 
-    // ---------- ordenação ---------------
-
-    public void quicksort(int esq, int dir) {
-       int i = esq, j = dir;
-       Filme pivo = filme[(dir+esq)/2];
-
-       while (i <= j) {
-           while (filme[i].getSituacao().compareTo(pivo.getSituacao()) < pivo.getSituacao().compareTo(filme[i].getSituacao())) {
-               i++;
-           }
-           while (filme[i].getSituacao().compareTo(pivo.getSituacao()) > pivo.getSituacao().compareTo(filme[i].getSituacao())) {
-            j--;
-           }
-           if (i <= j) {
-               swap(i, j);
-               i++;
-               j--;
-           }
-       }
-
-       if (esq < j) { quicksort(esq, j); }
-       if (i < dir) { quicksort(i, dir); }
-    }
-
-    // ------------------------------------
-
-    // ---------- empate ---------------
+    // ---------- sort ---------------
 
     public void insercao() {
-        for (int i = 1; i < n; i++) {
-            Filme tmp = filme[i];
-            int j = i - 1;
-
-            while ((j >= 0) && ((filme[j].getNome().compareTo(tmp.getNome())) > (tmp.getNome().compareTo(filme[j].getNome())))) {
-                filme[j + 1] = filme[j];
-                j--;
-                cont++;
-            }
-
-            filme[j + 1] = tmp;
-        }
-     }
+        
+    }
  
      // ------------------------------------
 
@@ -264,6 +226,19 @@ class Quick {
     }
 
     // ---------------------------------------
+
+    // ---------- tamanho ----------
+
+    public int tamanho() {
+        
+        int tamanho = 0;
+
+        for (CelulaDupla i = primeiro; i != ultimo;i = i.prox, tamanho++);
+
+        return tamanho;
+    }
+
+    // --------------------------------
 
 }
 
