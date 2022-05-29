@@ -278,6 +278,8 @@ class Filme {
     private float Orcamento;
     private ArrayList<String> Key_Words;
 
+    String folder = "./tmp/filmes/";
+
     // ------------------------------------------------------------
 
     // ----------------------- construtores -----------------------
@@ -447,7 +449,6 @@ class Filme {
     // ----- Nome -----
     public void readNome(String arquivo) throws Exception {
 
-        String folder = "/tmp/filmes/";
         FileReader arq = new FileReader(folder + arquivo);
         BufferedReader readArq = new BufferedReader(arq);
 
@@ -474,7 +475,6 @@ class Filme {
     // ----- Titulo original -----
     public void readTitulo(String arquivo) throws Exception {
 
-        String folder = "/tmp/filmes/";
         FileReader arq = new FileReader(folder + arquivo);
         BufferedReader readArq = new BufferedReader(arq);
 
@@ -502,7 +502,6 @@ class Filme {
     // ----- Data -----
     public void readData(String arquivo) throws Exception {
 
-        String folder = "/tmp/filmes/";
         FileReader arq = new FileReader(folder + arquivo);
         BufferedReader readArq = new BufferedReader(arq);
 
@@ -536,7 +535,6 @@ class Filme {
     // ----- Duração -----
     public void readDuracao(String arquivo) throws Exception {
 
-        String folder = "/tmp/filmes/";
         FileReader arq = new FileReader(folder + arquivo);
         BufferedReader readArq = new BufferedReader(arq);
 
@@ -576,7 +574,6 @@ class Filme {
     // ----- Genero -----
     public void readGenero(String arquivo) throws Exception {
 
-        String folder = "/tmp/filmes/";
         FileReader arq = new FileReader(folder + arquivo);
         BufferedReader readArq = new BufferedReader(arq);
 
@@ -604,7 +601,6 @@ class Filme {
     // ----- Idioma original -----
     public void readIdioma(String arquivo) throws Exception {
 
-        String folder = "/tmp/filmes/";
         FileReader arq = new FileReader(folder + arquivo);
         BufferedReader readArq = new BufferedReader(arq);
 
@@ -630,7 +626,6 @@ class Filme {
     // ----- Situação -----
     public void readSituacao(String arquivo) throws Exception {
 
-        String folder = "/tmp/filmes/";
         FileReader arq = new FileReader(folder + arquivo);
         BufferedReader readArq = new BufferedReader(arq);
 
@@ -654,7 +649,6 @@ class Filme {
     // ----- Orçamento -----
     public void readOrcamento(String arquivo) throws Exception {
 
-        String folder = "/tmp/filmes/";
         FileReader arq = new FileReader(folder + arquivo);
         BufferedReader readArq = new BufferedReader(arq);
 
@@ -688,7 +682,6 @@ class Filme {
     // ----- Palavras-chave -----
     public void readKey(String arquivo) throws Exception {
 
-        String folder = "/tmp/filmes/";
         FileReader arq = new FileReader(folder + arquivo);
         BufferedReader readArq = new BufferedReader(arq);
 
