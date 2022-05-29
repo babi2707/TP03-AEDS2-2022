@@ -49,24 +49,19 @@ class Quick {
 
     public void insertInicio(Filme x) throws Exception {
 
-        // ----- validar inserção -----
+        CelulaDupla tmp = new CelulaDupla(x);
 
-        if (n >= filme.length) {
-            throw new Exception("Erro ao inserir");
+        tmp.ant = primeiro;
+        tmp.prox = primeiro.prox;
+        primeiro.prox = tmp;
+
+        if (primeiro == ultimo) {
+            ultimo = tmp;
+        } else {
+            tmp.prox.ant = tmp;
         }
 
-        // ----------------------------
-
-        // ----- levar elementos para o final -----
-
-        for (int i = n; i > 0; i--) {
-            filme[i] = filme[i - 1];
-        }
-
-        // ----------------------------------------
-
-        filme[0] = x;
-        n++;
+        tmp = null;
 
     }
 
