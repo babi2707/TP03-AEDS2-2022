@@ -14,6 +14,20 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.io.IOException;
 
+class CelulaDupla {
+    public Filme elemento;
+    public CelulaDupla ant, prox;
+
+    // ---------- construtores ----------
+    public CelulaDupla() {}
+
+    public CelulaDupla(Filme elemento) {
+        this.elemento = elemento;
+        this.ant = this.prox = null;
+    }
+    // --------------------------------
+}
+
 class Quick {
 
     // ---------- atributos ----------
