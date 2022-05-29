@@ -583,7 +583,7 @@ public class FilaC {
         qtd--; // diminuir a quantidade de elementos da string em cada linha lida
 
         Filme entradas[] = new Filme[qtd]; // criar um vetor da classe
-        Line movie = new Line(5); // criar uma lista da classe List
+        Line movie = new Line(); // criar uma lista da classe List
 
         // ---------------- for loop para chamar a função que lê o arquivo
         // -----------------
@@ -600,7 +600,6 @@ public class FilaC {
             entradas[i].readKey(s[i]);
 
             movie.insertFim(entradas[i]); // inserir a entrada no final da lista
-            MyIO.println(movie.media()); // imprimir a média da duração dos filmes
         }
         // ---------------------------------------------------------------------------------
 
@@ -642,12 +641,6 @@ public class FilaC {
                 // ----- inserir -----
                 movie.insertFim(filminho);
                 // -------------------
-
-                // ----- imprimir -----
-
-                MyIO.println(movie.media()); // imprimir a média da duração dos filmes
-
-                // --------------------
             }
 
             // ----- remover final -----
