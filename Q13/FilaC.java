@@ -93,27 +93,6 @@ class Line {
 
     // ---------------------------------------
 
-    // ---------- calcular média ----------
-
-    public int media () {
-
-        double media = 0;
-        int qtd = 0;
-
-        for (int i = primeiro; i != ultimo; i = ((i+1) % filme.length)) {
-            media += filme[i].getDuracao();
-            qtd++;
-        }
-
-
-
-        return (int)Math.round(media/qtd);
-    }
-
-    // ------------------------------------
-
-
-
 }
 
 class Filme {
@@ -130,6 +109,8 @@ class Filme {
     private float Orcamento;
     private ArrayList<String> Key_Words;
 
+    String folder = "./tmp/filmes/";
+
     // ------------------------------------------------------------
 
     // ----------------------- construtores -----------------------
@@ -137,13 +118,13 @@ class Filme {
     public Filme() {
 
         Nome = "";
-        // Titulo_Original = "";
-        // Duracao = 0;
-        // Genero = "";
-        // Idioma_Original = "";
-        // Situacao = "";
-        // Orcamento = 0;
-        // Key_Words = new ArrayList<String>();
+        Titulo_Original = "";
+        Duracao = 0;
+        Genero = "";
+        Idioma_Original = "";
+        Situacao = "";
+        Orcamento = 0;
+        Key_Words = new ArrayList<String>();
 
     }
 
@@ -151,14 +132,14 @@ class Filme {
             String Idioma_Original, String Situacao, Float Orcamento, ArrayList<String> Key_Words) {
 
         setNome(Nome);
-        // setTitulo_Original(Titulo_Original);
-        // setData_de_Lancamento(Data_de_Lancamento);
-        // setDuracao(Duracao);
-        // setGenero(Genero);
-        // setIdioma_Original(Idioma_Original);
-        // setSituacao(Situacao);
-        // setOrcamento(Orcamento);
-        // setKey_Words(Key_Words);
+        setTitulo_Original(Titulo_Original);
+        setData_de_Lancamento(Data_de_Lancamento);
+        setDuracao(Duracao);
+        setGenero(Genero);
+        setIdioma_Original(Idioma_Original);
+        setSituacao(Situacao);
+        setOrcamento(Orcamento);
+        setKey_Words(Key_Words);
 
     }
 
@@ -299,7 +280,6 @@ class Filme {
     // ----- Nome -----
     public void readNome(String arquivo) throws Exception {
 
-        String folder = "./tmp/filmes/";
         FileReader arq = new FileReader(folder + arquivo);
         BufferedReader readArq = new BufferedReader(arq);
 
@@ -326,7 +306,6 @@ class Filme {
     // ----- Titulo original -----
     public void readTitulo(String arquivo) throws Exception {
 
-        String folder = "./tmp/filmes/";
         FileReader arq = new FileReader(folder + arquivo);
         BufferedReader readArq = new BufferedReader(arq);
 
@@ -354,7 +333,6 @@ class Filme {
     // ----- Data -----
     public void readData(String arquivo) throws Exception {
 
-        String folder = "./tmp/filmes/";
         FileReader arq = new FileReader(folder + arquivo);
         BufferedReader readArq = new BufferedReader(arq);
 
@@ -388,7 +366,6 @@ class Filme {
     // ----- Duração -----
     public void readDuracao(String arquivo) throws Exception {
 
-        String folder = "./tmp/filmes/";
         FileReader arq = new FileReader(folder + arquivo);
         BufferedReader readArq = new BufferedReader(arq);
 
@@ -428,7 +405,6 @@ class Filme {
     // ----- Genero -----
     public void readGenero(String arquivo) throws Exception {
 
-        String folder = "./tmp/filmes/";
         FileReader arq = new FileReader(folder + arquivo);
         BufferedReader readArq = new BufferedReader(arq);
 
@@ -456,7 +432,6 @@ class Filme {
     // ----- Idioma original -----
     public void readIdioma(String arquivo) throws Exception {
 
-        String folder = "./tmp/filmes/";
         FileReader arq = new FileReader(folder + arquivo);
         BufferedReader readArq = new BufferedReader(arq);
 
@@ -482,7 +457,6 @@ class Filme {
     // ----- Situação -----
     public void readSituacao(String arquivo) throws Exception {
 
-        String folder = "./tmp/filmes/";
         FileReader arq = new FileReader(folder + arquivo);
         BufferedReader readArq = new BufferedReader(arq);
 
@@ -506,7 +480,6 @@ class Filme {
     // ----- Orçamento -----
     public void readOrcamento(String arquivo) throws Exception {
 
-        String folder = "./tmp/filmes/";
         FileReader arq = new FileReader(folder + arquivo);
         BufferedReader readArq = new BufferedReader(arq);
 
@@ -540,7 +513,6 @@ class Filme {
     // ----- Palavras-chave -----
     public void readKey(String arquivo) throws Exception {
 
-        String folder = "./tmp/filmes/";
         FileReader arq = new FileReader(folder + arquivo);
         BufferedReader readArq = new BufferedReader(arq);
 
