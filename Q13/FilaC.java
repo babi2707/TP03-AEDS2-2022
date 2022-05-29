@@ -70,8 +70,11 @@ class Line {
 
     public void insertFim(Filme x) throws Exception {
 
+        if (tamanho() == n) { removeInicio(); }
+
         ultimo.prox = new Celula(x);
         ultimo = ultimo.prox;
+        cont++;
     }
 
     // -------------------------------------------------
@@ -94,6 +97,7 @@ class Line {
         Filme resp = primeiro.elemento;
         tmp.prox = null;
         tmp = null;
+        cont--;
 
         return resp;
 
@@ -113,6 +117,36 @@ class Line {
     }
 
     // ---------------------------------------
+
+    // ---------- pesquisar ----------
+
+    public boolean pesquisar(Filme x) {
+        boolean resp = false;
+
+        for (Celula i = primeiro.prox; i != null; i = i.prox) {
+            if (i.elemento == x) {
+                resp = true;
+                i = ultimo;
+            }
+        }
+
+        return resp;
+    }
+
+    // --------------------------------
+
+    // ---------- tamanho ----------
+
+    public int tamanho() {
+        
+        int tamanho = 0;
+
+        for (Celula i = primeiro; i != ultimo;i = i.prox, tamanho++);
+
+        return tamanho;
+    }
+
+    // --------------------------------
 
 }
 
