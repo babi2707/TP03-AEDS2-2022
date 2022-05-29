@@ -32,20 +32,15 @@ class Quick {
 
     // ---------- atributos ----------
 
-    private Filme[] filme;
-    public int n, cont = 0;
+    private CelulaDupla primeiro, ultimo;
 
     // -------------------------------
 
-    // ---------- construtores ----------
+    // ---------- construtor ----------
 
     public Quick() {
-        this(6);
-    }
-
-    public Quick(int tamanho) {
-        filme = new Filme[tamanho];
-        n = 0;
+        primeiro = new CelulaDupla();
+        ultimo = primeiro;
     }
 
     // ----------------------------------
