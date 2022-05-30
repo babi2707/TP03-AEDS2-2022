@@ -230,7 +230,7 @@ class Quick {
 
     public void show() {
 
-        for (CelulaDupla i = primeiro.prox; i != null; i = i.prox, j++) {
+        for (CelulaDupla i = primeiro.prox; i != null; i = i.prox) {
             i.elemento.print();
         }
     }
@@ -764,7 +764,7 @@ public class QuicksortD {
         movie.show();
 
         Arq.openWrite("748190_quicksort2.txt");
-        //Arq.println("748190\t " + (System.currentTimeMillis() - time) + " ms\t" + movie.);
+        Arq.println("748190\t " + (System.currentTimeMillis() - time) + " ms\t");
         Arq.close();
 
     }
