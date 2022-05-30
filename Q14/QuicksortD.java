@@ -211,10 +211,20 @@ class Quick {
     // ---------- sort ---------------
 
     public void insercao() {
-        
+        for (CelulaDupla i = primeiro; i == ultimo; i = i.prox) {
+            Filme tmp = i.elemento;
+            CelulaDupla j = i.ant;
+
+            while ((j.elemento == null) && (j.elemento.getNome().compareTo(tmp.getNome()) > tmp.getNome().compareTo(j.elemento.getNome()))) {
+                j.prox.elemento = j.elemento;
+                j = j.ant;
+            }
+
+            j.prox.elemento = tmp;
+        }
     }
  
-     // ------------------------------------
+    // ------------------------------------
 
     // ---------- mostrar elementos ----------
 
@@ -730,7 +740,7 @@ public class QuicksortD {
         qtd--; // diminuir a quantidade de elementos da string em cada linha lida
 
         Filme entradas[] = new Filme[qtd]; // criar um vetor da classe
-        Quick movie = new Quick(10000); // criar uma lista da classe List
+        Quick movie = new Quick(); // criar uma lista da classe List
 
         // ---------------- for loop para chamar a função que lê o arquivo
         // -----------------
@@ -753,8 +763,8 @@ public class QuicksortD {
         movie.sort();
         movie.show();
 
-        Arq.openWrite("748190_quicksort.txt");
-        Arq.println("748190\t " + (System.currentTimeMillis() - time) + " ms\t" + movie.cont);
+        Arq.openWrite("748190_quicksort2.txt");
+        //Arq.println("748190\t " + (System.currentTimeMillis() - time) + " ms\t" + movie.);
         Arq.close();
 
     }
