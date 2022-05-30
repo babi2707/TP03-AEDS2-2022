@@ -266,7 +266,7 @@ class Filme {
     private float Orcamento;
     private ArrayList<String> Key_Words;
 
-    String folder = "./tmp/filmes/";
+    String folder = "/tmp/filmes/";
 
     // ------------------------------------------------------------
 
