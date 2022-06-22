@@ -23,7 +23,7 @@
 #define MAX_FIELD_SIZE      100
 #define MAX_KEYWORDS        50
 #define MAX_LINE_SIZE       250
-#define FDR_PREFIX          "./tmp/filmes/"
+#define FDR_PREFIX          "/tmp/filmes/"
 // --------------------------------------------------------------
 
 
@@ -457,19 +457,18 @@ void insert (Movie x) {
 
 // --------------- remover ---------------
 
-Movie remover () {
+Movie remover() {
+    
     if (topo == NULL) {
         errx(1, "Erro ao remover!");
     }
 
     Movie resp = topo->elemento;
     Celula *tmp = topo;
-    topo->prox = NULL;
-
+    topo = topo->prox;
+    tmp->prox = NULL;
     free(tmp);
-
     tmp = NULL;
-
     cont--;
 
     return resp;    
@@ -543,7 +542,7 @@ int main() {
         
         // --- remoção ---
         else if (linha[0] == 'R') {
-            //filme = remover();
+            filme = remover();
 
             printf("(R) %s\n", filme.name);
         }
