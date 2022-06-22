@@ -23,7 +23,7 @@
 #define MAX_FIELD_SIZE      100
 #define MAX_KEYWORDS        50
 #define MAX_LINE_SIZE       250
-#define FDR_PREFIX          "/tmp/filmes/"
+#define FDR_PREFIX          "./tmp/filmes/"
 // --------------------------------------------------------------
 
 
@@ -177,8 +177,7 @@ char *extractOnlyText(char *html, char *text) {
 
 // ----- imprimir -----
 void movie_print(Movie *movie) {
-    if (strcmp(movie -> name,"Witch Hunt") == 0) {
-        printf("%s %s %02i/%02i/%04i %i %s %s %s %g[",
+    printf("%s %s %02i/%02i/%04i %i %s %s %s %g [",
     movie -> name,
     movie -> original_title,
     movie -> release_date.day, movie -> release_date.month, movie -> release_date.year,
@@ -187,17 +186,6 @@ void movie_print(Movie *movie) {
     movie -> original_language,
     movie -> situation,
     movie -> budget);
-    } else {
-        printf("%s %s %02i/%02i/%04i %i %s %s %s %g [",
-    movie -> name,
-    movie -> original_title,
-    movie -> release_date.day, movie -> release_date.month, movie -> release_date.year,
-    movie -> duration,
-    movie -> genre,
-    movie -> original_language,
-    movie -> situation,
-    movie -> budget);
-    }
     for(int i = 0; i < movie -> count_keywords; i++) {
         if(i == movie -> count_keywords - 1) printf("%s]\n", movie -> keywords[i]);
         else printf("%s, ", movie -> keywords[i]);
