@@ -525,6 +525,8 @@ void sort () {
 
 int main() {
 
+    start();
+
     char line[MAX_LINE_SIZE];
 
     readline(line, MAX_LINE_SIZE);
