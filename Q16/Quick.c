@@ -409,8 +409,8 @@ void movie_inicio (Movie *movie) {
 typedef struct CelulaDupla
 {
     Movie elemento; // elemento a ser inserido na celula
-    struct CelulaDupla *prox; // ponteiro que aponta para celula prox
-    struct CelulaDupla *ant; // ponteiro que aponta para celula ant
+    struct CelulaDupla* prox; // ponteiro que aponta para celula prox
+    struct CelulaDupla* ant; // ponteiro que aponta para celula ant
 } CelulaDupla;
 
 CelulaDupla* newCelulaDupla (Movie elemento) {
@@ -500,11 +500,12 @@ void quickSort(CelulaDupla** filme, int esq, int dir) {
             while (strcmp(filme[j]->elemento.situation, pivo.situation) > 0) j--;
         }
 
-        if (esq < j) quickSort(filme, esq, j);
-        if (i < dir) quickSort(filme, i, dir);
-
+        if (i <= j) swap(filme[i++], filme[j--]);
 
     }
+
+    if (esq < j) quickSort(filme, esq, j);
+    if (i < dir) quickSort(filme, i, dir);
 }
 
 void sort () {
